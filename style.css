@@ -130,3 +130,20 @@ body {
     margin: 5px auto 0 auto; display: block;
 }
 .btn-print:hover { background-color: #1a365d; }
+
+@media print {
+    /* ... lo que ya tenías ... */
+    
+    /* Forzamos a que el contenido no intente expandirse más allá del A4 */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    /* Esta línea ayuda a que algunos visores omitan el pie de página automático */
+    @page { 
+        size: A4 portrait; 
+        margin: 0; /* Margen cero para que el visor no tenga espacio donde poner el footer */
+    }
+}
